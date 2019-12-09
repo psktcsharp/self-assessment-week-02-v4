@@ -17,7 +17,11 @@ var getData = function() {
     },
     error: function(data) {
       $('#error').prepend(' oh no').append('!');
-    }
+    },
+    done: function( msg ) {
+    alert( "All set: " + msg );
+  }
+    
   });
 };
 
@@ -104,6 +108,7 @@ var displayData = function(data, user) {
   });
 };
 
+//this function sends the message to the server side 
 var postData = function(message, username) {
   $.ajax({
     url: SERVER_URL,
@@ -114,9 +119,15 @@ var postData = function(message, username) {
       text: message
     }),
     success: function(data) {
+      //inform user that message was sent
+      alert("message sent")
+      //push message to chat log 
+      sortedData.push(message)
       console.log('Success!', data);
     },
     error: function(data) {
+      //inform if failed
+      alert("sending failed")
       console.log(data);
     }
   });

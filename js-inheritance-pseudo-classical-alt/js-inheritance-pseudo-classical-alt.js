@@ -40,11 +40,14 @@ var makeFlyingHorse = function(name, color) {
 // Do not use the ES6 `class` keyword; use ES5 to create your classes.
 
 var Horse = function(name) {
+  this.makeHorse = makeHorse; 
 };
 
 
 
 var FlyingHorse = function(name, color) {
+  this.makeFlyingHorse = makeFlyingHorse; 
 };
+
 
 
